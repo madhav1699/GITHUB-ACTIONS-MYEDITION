@@ -1,4 +1,4 @@
-name: modules-1-5-CI-pipeline
+name: Modules(1-5)-CI-pipeline
 on:
   workflow_dispatch:
   push:
