@@ -61,8 +61,8 @@ jobs:
     steps:
       - name: Repo and secret variable accessing from GIT UI
         run: |
-          echo "Bankusers count       : $users"
-          echo "Bank Balance          : $balance"
+          echo "Bankusers count       : ${{vars.users}}"
+          echo "Bank Balance          : ${{secrets.balance}}"
 
 
 
