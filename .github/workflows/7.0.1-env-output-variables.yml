@@ -19,13 +19,16 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     outputs:
-      Application: ${{steps.tag2.outputs.value}}
+      Application: ${{steps.tag2.outputs.value1}}
+      Environment: ${{steps.tag2.outputs.value2}}
+      app_url: ${{steps.tag2.outputs.app_url}}
     steps:
       - name: job level output
         id : tag2
         run: | 
-          echo "value=Paytm" >> $GITHUB_OUTPUT
-          echo "value=test" >> $GITHUB_OUTPUT
+          echo "value1=Paytm" >> $GITHUB_OUTPUT
+          echo "value2=test" >> $GITHUB_OUTPUT
+          echo "app_url=www.paytm.com" >> $GITHUB_OUTPUT
 
   job3:
     runs-on: ubuntu-latest
@@ -34,6 +37,8 @@ jobs:
       - name: printing previous job outputs
         run: |
           echo "Application is: ${{needs.job2.outputs.Application}}"
+          echo "Environment is: ${{needs.job2.outputs.Environment}}"
+          echo "App Url is: ${{needs.job2.outputs.app_url}}"
 
 
 
