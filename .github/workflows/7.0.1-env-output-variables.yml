@@ -1,0 +1,18 @@
+name: 7.0-GITHUB_OUTPUT-variables
+on: 
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step level output
+        id: tag1
+        run: | 
+          echo "Application=swiggy" >> $GITHUB_OUTPUT
+          echo "Environment=prod" >> $GITHUB_OUTPUT
+      - name: printing above outputs.
+        run:  |
+          echo "Application is: $steps.tag1.outputs.Application"
+          echo "Environment is: $steps.tag1.outputs.Environment"
+          
+
