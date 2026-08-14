@@ -15,4 +15,27 @@ jobs:
           echo "Application is: ${{steps.tag1.outputs.Application}}"
           echo "Environment is: ${{steps.tag1.outputs.Environment}}"
 
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    outputs:
+      Application: ${{steps.tag2.outputs.value}}
+    steps:
+      - name: job level output
+        id : tag2
+        run: | 
+          echo "value=Paytm" >> $GITHUB_OUTPUT
+          echo "value=test" >> $GITHUB_OUTPUT
+
+  job3:
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - name: printing previous job outputs
+        run: |
+          echo "Application is: ${{needs.job2.outputs.Application}}"
+
+
+
+
 
