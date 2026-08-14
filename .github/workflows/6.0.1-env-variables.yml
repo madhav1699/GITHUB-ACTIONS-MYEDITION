@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "Client is       : $client"
           echo "Origin is       : $origin"
-job3:
+  job3:
     runs-on: ubuntu-latest
     needs: job2
     steps:
@@ -55,7 +55,7 @@ job3:
           echo "Bank Partners are       : $Partners"
           echo "Bank percentage is      : $Percentage"
 
-job4:
+  job4:
     runs-on: ubuntu-latest
     needs: job3
     steps:
