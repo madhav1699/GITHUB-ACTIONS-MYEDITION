@@ -23,7 +23,7 @@ jobs:
       - name: job level env declaration
         run: |
          echo "Application is       : $Application "
-         echo "Application Source   : $BANK"
+         echo "Application Source   : $SOURCE"
   
   job2:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
           echo "Client is       : $client"
           echo "Origin is       : $origin"
 
-      - name: accessing step variables from previos
+      - name: accessing step variables from previous
         run: |
           echo "Client is       : $client"
           echo "Origin is       : $origin"
