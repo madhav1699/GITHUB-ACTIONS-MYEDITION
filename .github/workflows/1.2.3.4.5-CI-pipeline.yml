@@ -1,6 +1,24 @@
 name: Modules(1-5)-CI-pipeline
 on:
   workflow_dispatch:
+    inputs:
+      Environment:
+        description: Target environment?
+        type: choice
+        options:
+          - PROD
+          - TEST
+          - STAGING
+      Version:
+        description: version to deploy?
+        type: string
+        default: 1.0.0
+
+      Skip-tests:
+        description: Skips-tests?
+        type: boolean
+        default: false
+
   push:
     branches:
       - main
@@ -48,6 +66,16 @@ jobs:
           echo "Actor is        : ${{github.actor}}"
           echo "Commitid is     : ${{github.sha}}"
           ls -l target/
+
+  input-context-job:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing inputs selected
+        run: |
+          echo "Environment selected is: ${{inputs.Environment}}"
+          echo "Version deployed is: ${{inputs.Version}}"
+          echo "Skipped tests: ${{inputs.Skip-tests}}"
 
 
 
