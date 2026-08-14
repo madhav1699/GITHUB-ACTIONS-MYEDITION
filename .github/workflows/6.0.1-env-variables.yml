@@ -1,9 +1,9 @@
 name: 06-Environment-Variables
 on:
   workflow_dispatch:
-  env:
-    user: "madhav"
-    email: "madhav@gmail.com"
+env:
+  user: "madhav"
+  email: "madhav@gmail.com"
 jobs:
   job0:
     runs-on: ubuntu-latest
