@@ -12,7 +12,7 @@ jobs:
           echo "Environment=prod" >> $GITHUB_OUTPUT
       - name: printing above outputs.
         run:  |
-          echo "Application is: $steps.tag1.outputs.Application"
-          echo "Environment is: $steps.tag1.outputs.Environment"
-          
+          echo "Application is: ${{steps.tag1.outputs.Application}}"
+          echo "Environment is: ${{steps.tag1.outputs.Environment}}"
+
 
